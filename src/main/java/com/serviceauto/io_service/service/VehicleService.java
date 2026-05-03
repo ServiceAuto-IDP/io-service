@@ -18,9 +18,10 @@ public class VehicleService {
 
     @Transactional
     public InternalVehicleResponse createVehicle(InternalVehicleRequest request) {
+        System.out.println("CREATING VEHICLE RIGHT NOW.");
         Vehicle vehicle = new Vehicle(
                 request.userId(),
-                request.plateNumber(),
+                request.licensePlate(),
                 request.brand(),
                 request.model()
         );
@@ -50,7 +51,7 @@ public class VehicleService {
     public InternalVehicleResponse updateVehicle(Long vehicleId, InternalVehicleRequest request) {
         Vehicle vehicle = findEntityById(vehicleId);
         vehicle.setUserId(request.userId());
-        vehicle.setPlateNumber(request.plateNumber());
+        vehicle.setLicensePlate(request.licensePlate());
         vehicle.setBrand(request.brand());
         vehicle.setModel(request.model());
         return toResponse(vehicleRepository.save(vehicle));
@@ -71,7 +72,7 @@ public class VehicleService {
         return new InternalVehicleResponse(
                 vehicle.getId(),
                 vehicle.getUserId(),
-                vehicle.getPlateNumber(),
+                vehicle.getLicensePlate(),
                 vehicle.getBrand(),
                 vehicle.getModel()
         );

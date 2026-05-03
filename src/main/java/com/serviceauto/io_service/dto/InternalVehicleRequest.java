@@ -5,7 +5,7 @@ import jakarta.validation.constraints.NotNull;
 
 public record InternalVehicleRequest(
         @NotNull Long userId,
-        @NotBlank String plateNumber,
+        @NotBlank String licensePlate,
         @NotBlank String brand,
         @NotBlank String model
 ) {

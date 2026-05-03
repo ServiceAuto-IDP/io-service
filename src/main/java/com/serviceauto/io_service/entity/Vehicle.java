@@ -26,7 +26,7 @@ public class Vehicle {
     private Long userId;
 
     @Column(nullable = false, unique = true, length = 32)
-    private String plateNumber;
+    private String licensePlate;
 
     @Column(nullable = false, length = 64)
     private String brand;
@@ -34,9 +34,9 @@ public class Vehicle {
     @Column(nullable = false, length = 64)
     private String model;
 
-    public Vehicle(Long userId, String plateNumber, String brand, String model) {
+    public Vehicle(Long userId, String licensePlate, String brand, String model) {
         this.userId = userId;
-        this.plateNumber = plateNumber;
+        this.licensePlate = licensePlate;
         this.brand = brand;
         this.model = model;
     }

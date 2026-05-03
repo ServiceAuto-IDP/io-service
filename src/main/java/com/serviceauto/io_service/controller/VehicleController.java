@@ -27,6 +27,7 @@ public class VehicleController {
     @PostMapping("/vehicles")
     @ResponseStatus(HttpStatus.CREATED)
     public InternalVehicleResponse createVehicle(@Valid @RequestBody InternalVehicleRequest request) {
+        System.out.println("reached the controller in io service");
         return vehicleService.createVehicle(request);
     }
 
